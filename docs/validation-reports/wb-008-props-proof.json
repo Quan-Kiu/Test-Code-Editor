@@ -1,0 +1,12 @@
+{
+  "story": "WB-008 physical crate recovery and upright door target",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4243",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "checks": {},
+  "result": "fail",
+  "failure": "page.waitForFunction: Target page, context or browser has been closed"
+}

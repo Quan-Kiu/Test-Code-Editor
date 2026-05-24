@@ -1,0 +1,51 @@
+{
+  "story": "WB-008 movement, lower jump and raised-hand feedback",
+  "browserMode": "headed Chromium + Xvfb bridge",
+  "localhostDirect": "blocked; see wb-008-direct-probe.json",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4243",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "checks": {
+    "lowerJumpFunctional": true,
+    "raisedHandBadgeVisible": true
+  },
+  "result": "pass",
+  "bridgedRequests": [
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-BCda-LsZ.css",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-BCda-LsZ.css",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-T5g-1raI.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-T5g-1raI.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/rolldown-runtime-QTnfLwEv.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/rolldown-runtime-QTnfLwEv.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/GameScene-gkvibftF.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/GameScene-gkvibftF.js",
+      "status": 200
+    }
+  ],
+  "webgl": {
+    "available": true,
+    "glError": 0
+  },
+  "telemetry": {
+    "stanceY": 1.199,
+    "jumpRise": 0.949
+  },
+  "screenshotPath": "docs/validation-reports/wb-008-screenshots/wb-008-raised-hand-crate-grab.png"
+}

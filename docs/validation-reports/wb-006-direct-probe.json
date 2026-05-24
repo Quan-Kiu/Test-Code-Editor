@@ -1,0 +1,11 @@
+{
+  "story": "WB-006",
+  "browserMode": "headed Chromium + Xvfb",
+  "executable": "/usr/bin/chromium",
+  "url": "http://127.0.0.1:4186",
+  "bridgeUsed": false,
+  "appSource": "real Vite preview direct navigation attempt",
+  "result": "blocked",
+  "errors": [],
+  "failure": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:4186/\nCall log:\n  - navigating to \"http://127.0.0.1:4186/\", waiting until \"domcontentloaded\"\n"
+}

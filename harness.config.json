@@ -1,0 +1,99 @@
+{
+  "name": "agent-engineering-harness",
+  "version": "1.3.1",
+  "source": "agent engineering playbook export",
+  "purpose": "Repo-local operating harness for AI coding agents, independent of ChatGPT Skills.",
+  "primary_entrypoint": "HARNESS.md",
+  "runtime_entrypoints": {
+    "generic": "AGENTS.md",
+    "claude": "CLAUDE.md",
+    "hermes": ".hermes/context.md"
+  },
+  "project_playbook_root": "project-playbook",
+  "harness_root": ".agent-harness",
+  "supported_modes": [
+    "learning",
+    "mvp",
+    "real-project",
+    "production"
+  ],
+  "supported_project_types": [
+    "none",
+    "ui",
+    "api",
+    "backend",
+    "cli",
+    "mixed",
+    "game",
+    "web3d"
+  ],
+  "route_status_fields": [
+    "Current route status",
+    "Sandbox evidence status",
+    "External/enduser readiness",
+    "Downstream blockers",
+    "Next route"
+  ],
+  "hard_gates": [
+    "No route classification -> no workflow action.",
+    "No project context intake -> no project-specific implementation, validation, or release claim.",
+    "No Implementation File Plan -> no coding.",
+    "No plan-quality review -> no non-trivial coding.",
+    "No L2+ role-applicability scan and pre-code role simulation -> no coding.",
+    "No post-validation product-quality role review -> no L2+ done.",
+    "No component responsibility table -> no UI coding.",
+    "No browser interaction and screenshot-review evidence -> no UI/browser pass.",
+    "No validation evidence -> do not claim pass.",
+    "No explicit user request -> do not commit or push.",
+    "Production deploy -> release checklist required."
+  ],
+  "project_type_format": "single type or comma-separated combination such as ui,backend",
+  "validation_strategy": {
+    "harness_package": "python .agent-harness/scripts/validate_harness.py --root .",
+    "initialized_project": "node scripts/validate-project.mjs --mode <mode> --runtime <runtime> --project-type <type>",
+    "template_schema": "add --allow-template-placeholders only for blank template/schema checks, never for release approval"
+  },
+  "install_strategy": "selective_harness_non_destructive",
+  "install_note": "Installer copies only the harness core plus project-playbook files selected by mode, runtime, project-type, and phase. Existing files are skipped unless --force is used.",
+  "supported_phases": [
+    "bootstrap",
+    "guided-build",
+    "implementation",
+    "validation",
+    "game-adoption",
+    "release"
+  ],
+  "game_workflow_contract": {
+    "debug_evidence_is_not_player_playtest": true,
+    "requires_design_intake_before_implementation": true,
+    "requires_player_facing_readiness_before_human_playtest": true,
+    "requires_design_conformance_before_player_playability_pass": true,
+    "requires_web3d_architecture_for_3d_games": true
+  },
+  "browser_test_pack": {
+    "available": true,
+    "self_check": "node scripts/browser-evidence.mjs --self-check",
+    "evidence_command": "node scripts/browser-evidence.mjs --url http://localhost:3000 --project-type game --debug-url http://localhost:3000?debug=1",
+    "playwright_config": "playwright.config.mjs",
+    "normal_mode_requirement": "player/user mode must be clean before player-facing pass",
+    "web3d_evidence_command": "PROJECT_TYPE=game,web3d node scripts/browser-evidence.mjs --url http://localhost:3000 --project-type game,web3d --debug-url http://localhost:3000?debug=1",
+    "interaction_qa_doc": "docs/browser-interaction-qa.md",
+    "interaction_gate": "real Chromium + mouse/keyboard/touch actions + component screenshots + screenshot review + human-level composition/role simulation + design comparison when available"
+  },
+  "quality_hardening": {
+    "design_assets_registry": true,
+    "role_raci_gates": true,
+    "traceability_matrix": true,
+    "browser_interaction_qa": true,
+    "web3d_readiness": true,
+    "accessibility_budget_security_extensions": true,
+    "product_quality_system": true,
+    "role_thinking_protocols": true,
+    "plan_quality_gate": true,
+    "role_gate_quality_map": true
+  },
+  "selected_mode": "mvp",
+  "selected_runtime": "generic",
+  "selected_project_type": "game,web3d",
+  "selected_phase": "game-adoption"
+}

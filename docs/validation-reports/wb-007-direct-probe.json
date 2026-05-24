@@ -1,0 +1,12 @@
+{
+  "story": "WB-007 direct localhost probe",
+  "browserMode": "headed Chromium + Xvfb",
+  "url": "http://127.0.0.1:4233",
+  "localhostDirect": "blocked",
+  "bridgeUsed": false,
+  "appSource": "real Vite preview server",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "result": "documented",
+  "failure": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:4233/\nCall log:\n  - navigating to \"http://127.0.0.1:4233/\", waiting until \"domcontentloaded\"\n"
+}

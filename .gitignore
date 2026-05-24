@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite/
+.DS_Store
+*.log
+coverage/
+test-results/
+docs/validation-reports/playwright-report/
+docs/validation-reports/browser-artifacts/

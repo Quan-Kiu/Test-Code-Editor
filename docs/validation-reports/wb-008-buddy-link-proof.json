@@ -1,0 +1,46 @@
+{
+  "story": "WB-008 assisted Buddy Link rescue and raised hand",
+  "browserMode": "headed Chromium + Xvfb bridge",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4243",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "result": "pass",
+  "bridgedRequests": [
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-BCda-LsZ.css",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-BCda-LsZ.css",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-T5g-1raI.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-T5g-1raI.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/rolldown-runtime-QTnfLwEv.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/rolldown-runtime-QTnfLwEv.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/GameScene-gkvibftF.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/GameScene-gkvibftF.js",
+      "status": 200
+    }
+  ],
+  "stagedY": -0.55,
+  "stagedScreenshot": "docs/validation-reports/wb-008-screenshots/wb-008-link-staged.png",
+  "linkedScreenshot": "docs/validation-reports/wb-008-screenshots/wb-008-link-held-hand-raised.png",
+  "rescuedY": 1.199,
+  "releasedScreenshot": "docs/validation-reports/wb-008-screenshots/wb-008-link-rescued-released.png",
+  "webgl": {
+    "available": true,
+    "glError": 0
+  }
+}

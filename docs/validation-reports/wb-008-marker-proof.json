@@ -1,0 +1,15 @@
+{
+  "story": "WB-008 upright switch target visual",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4243",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "result": "pass",
+  "webgl": {
+    "available": true,
+    "glError": 0
+  },
+  "screenshotPath": "docs/validation-reports/wb-008-screenshots/wb-008-upright-switch-target.png"
+}

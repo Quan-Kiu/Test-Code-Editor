@@ -1,0 +1,50 @@
+{
+  "story": "WB-006 completion regression",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "localhostDirect": "blocked; see wb-006-direct-probe.json",
+  "bridgeUsed": true,
+  "appSource": "real Vite preview bytes through dynamic-subresource fetch bridge (http://127.0.0.1:4186)",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "steps": [
+    {
+      "label": "Door opened",
+      "at": "11.56s"
+    },
+    {
+      "label": "page closed unexpectedly",
+      "at": "16.18s"
+    }
+  ],
+  "result": "fail",
+  "bridgedRequests": [
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-BxL61rRh.css",
+      "sourceUrl": "http://127.0.0.1:4186/assets/index-BxL61rRh.css",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-D8gHaOpE.js",
+      "sourceUrl": "http://127.0.0.1:4186/assets/index-D8gHaOpE.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/GameScene-BupuDlRW.js",
+      "sourceUrl": "http://127.0.0.1:4186/assets/GameScene-BupuDlRW.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/rapier-Pp_zTDH6.js",
+      "sourceUrl": "http://127.0.0.1:4186/assets/rapier-Pp_zTDH6.js",
+      "status": 200
+    }
+  ],
+  "webgl": {
+    "available": true,
+    "glError": 0,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "failure": "page.waitForTimeout: Target page, context or browser has been closed",
+  "elapsed": "16.26s"
+}

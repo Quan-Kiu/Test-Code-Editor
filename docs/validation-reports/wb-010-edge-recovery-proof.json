@@ -1,0 +1,323 @@
+{
+  "story": "WB-010 edge-fall recovery while pushing crate",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4243",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "samples": [
+    {
+      "px": 0.85,
+      "py": 1.199,
+      "pz": 0.989,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.524,
+      "cz": 2.2,
+      "crateReset": false
+    },
+    {
+      "px": 0.85,
+      "py": 1.199,
+      "pz": 0.989,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.524,
+      "cz": 2.2,
+      "crateReset": false
+    },
+    {
+      "px": 0.85,
+      "py": 1.199,
+      "pz": 0.989,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.528,
+      "cz": 2.347,
+      "crateReset": false
+    },
+    {
+      "px": 0.849,
+      "py": 1.199,
+      "pz": 1.597,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.796,
+      "cy": 0.524,
+      "cz": 2.68,
+      "crateReset": false
+    },
+    {
+      "px": 0.849,
+      "py": 1.199,
+      "pz": 1.597,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.796,
+      "cy": 0.524,
+      "cz": 3.205,
+      "crateReset": false
+    },
+    {
+      "px": 0.849,
+      "py": 1.199,
+      "pz": 1.597,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.796,
+      "cy": 0.524,
+      "cz": 3.205,
+      "crateReset": false
+    },
+    {
+      "px": 0.845,
+      "py": 1.199,
+      "pz": 2.487,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.791,
+      "cy": 0.524,
+      "cz": 3.817,
+      "crateReset": false
+    },
+    {
+      "px": 0.845,
+      "py": 1.199,
+      "pz": 2.487,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.789,
+      "cy": 0.524,
+      "cz": 4.175,
+      "crateReset": false
+    },
+    {
+      "px": 0.84,
+      "py": 1.199,
+      "pz": 3.355,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.789,
+      "cy": 0.523,
+      "cz": 4.405,
+      "crateReset": false
+    },
+    {
+      "px": 0.84,
+      "py": 1.199,
+      "pz": 3.355,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.789,
+      "cy": 0.55,
+      "cz": 4.778,
+      "crateReset": false
+    },
+    {
+      "px": 0.844,
+      "py": 1.2,
+      "pz": 4.315,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.765,
+      "cy": 0.411,
+      "cz": 5.422,
+      "crateReset": false
+    },
+    {
+      "px": 0.844,
+      "py": 1.2,
+      "pz": 4.315,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.746,
+      "cy": 0.01,
+      "cz": 6.015,
+      "crateReset": false
+    },
+    {
+      "px": 0.844,
+      "py": 1.2,
+      "pz": 4.315,
+      "grounded": true,
+      "recovered": false,
+      "cx": 0.731,
+      "cy": -0.68,
+      "cz": 6.458,
+      "crateReset": false
+    },
+    {
+      "px": 0.835,
+      "py": 0.521,
+      "pz": 6.608,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.719,
+      "cy": -1.763,
+      "cz": 6.825,
+      "crateReset": false
+    },
+    {
+      "px": 0.835,
+      "py": 0.521,
+      "pz": 6.608,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.719,
+      "cy": -1.763,
+      "cz": 6.825,
+      "crateReset": false
+    },
+    {
+      "px": 0.835,
+      "py": 0.521,
+      "pz": 6.608,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.708,
+      "cy": -3.474,
+      "cz": 7.134,
+      "crateReset": true
+    },
+    {
+      "px": 0.819,
+      "py": -2.8,
+      "pz": 9.677,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.509,
+      "cz": 2.2,
+      "crateReset": true
+    },
+    {
+      "px": 0.819,
+      "py": -2.8,
+      "pz": 9.677,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.509,
+      "cz": 2.2,
+      "crateReset": true
+    },
+    {
+      "px": 0.819,
+      "py": -2.8,
+      "pz": 9.677,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.509,
+      "cz": 2.2,
+      "crateReset": true
+    },
+    {
+      "px": 0.819,
+      "py": -2.8,
+      "pz": 9.677,
+      "grounded": false,
+      "recovered": false,
+      "cx": 0.8,
+      "cy": 0.509,
+      "cz": 2.2,
+      "crateReset": true
+    },
+    {
+      "px": 0.819,
+      "py": -2.8,
+      "pz": 9.677,
+      "grounded": false,
+      "recovered": true,
+      "cx": 0.8,
+      "cy": 0.524,
+      "cz": 2.2,
+      "crateReset": true
+    },
+    {
+      "px": 0.819,
+      "py": -2.8,
+      "pz": 9.677,
+      "grounded": false,
+      "recovered": true,
+      "cx": 0.8,
+      "cy": 0.524,
+      "cz": 2.2,
+      "crateReset": true
+    },
+    {
+      "px": -4.007,
+      "py": 1.191,
+      "pz": 1.288,
+      "grounded": true,
+      "recovered": true,
+      "cx": 0.8,
+      "cy": 0.524,
+      "cz": 2.2,
+      "crateReset": true
+    }
+  ],
+  "result": "pass",
+  "bridgedRequests": [
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-BCda-LsZ.css",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-BCda-LsZ.css",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-T5g-1raI.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-T5g-1raI.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/rolldown-runtime-QTnfLwEv.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/rolldown-runtime-QTnfLwEv.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/GameScene-gkvibftF.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/GameScene-gkvibftF.js",
+      "status": 200
+    }
+  ],
+  "aligned": {
+    "px": 0.85,
+    "py": 1.199,
+    "pz": 0.989,
+    "grounded": true,
+    "recovered": false,
+    "cx": 0.8,
+    "cy": 0.524,
+    "cz": 2.2,
+    "crateReset": false
+  },
+  "final": {
+    "px": -4.007,
+    "py": 1.191,
+    "pz": 1.288,
+    "grounded": true,
+    "recovered": true,
+    "cx": 0.8,
+    "cy": 0.524,
+    "cz": 2.2,
+    "crateReset": true
+  },
+  "maxCrateZ": 7.134,
+  "minPlayerY": -2.8,
+  "recoveryMs": 1093,
+  "messageVisible": true,
+  "webgl": {
+    "available": true,
+    "glError": 0
+  },
+  "screenshotPath": "docs/validation-reports/wb-010-screenshots/wb-010-player-and-crate-recovered.png"
+}

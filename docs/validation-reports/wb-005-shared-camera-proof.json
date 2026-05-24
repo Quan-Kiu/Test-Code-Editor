@@ -1,0 +1,46 @@
+{
+  "story": "WB-005 shared camera co-op gameplay frame",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "localhostDirect": "blocked; see wb-005-direct-probe.json",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4233",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "result": "pass",
+  "bridgedRequests": [
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-DNO4cUm_.css",
+      "sourceUrl": "http://127.0.0.1:4233/assets/index-DNO4cUm_.css",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-BfHtC4Pg.js",
+      "sourceUrl": "http://127.0.0.1:4233/assets/index-BfHtC4Pg.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/rolldown-runtime-QTnfLwEv.js",
+      "sourceUrl": "http://127.0.0.1:4233/assets/rolldown-runtime-QTnfLwEv.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "sourceUrl": "http://127.0.0.1:4233/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/GameScene-7zEPZKNC.js",
+      "sourceUrl": "http://127.0.0.1:4233/assets/GameScene-7zEPZKNC.js",
+      "status": 200
+    }
+  ],
+  "player2StartX": -4,
+  "player2DoorX": 18.28,
+  "player2MovedByGamepad": true,
+  "webgl": {
+    "available": true,
+    "glError": 0
+  },
+  "screenshotPath": "docs/validation-reports/wb-005-screenshots/wb-005-coop-door-open.png"
+}

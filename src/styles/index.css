@@ -1,0 +1,276 @@
+:root {
+  --player-blue: #5aa7ff;
+  --player-blue-dark: #3679db;
+  --buddy-coral: #ff8a7a;
+  --buddy-coral-dark: #ea6f63;
+  --sky-blue: #bce5ff;
+  --mint: #7ed6a6;
+  --yellow: #ffd37a;
+  --lavender: #c9b7ff;
+  --cream: #fff6e8;
+  --cream-solid: #fffaf3;
+  --charcoal: #2b2f3a;
+  --navy: #182a59;
+  --success: #58c978;
+  --warning: #ffa24a;
+  --panel-shadow: 0 18px 44px rgba(24, 42, 89, 0.13), 0 3px 10px rgba(24, 42, 89, 0.08);
+  --ui-font: "Trebuchet MS", "Arial Rounded MT Bold", ui-rounded, system-ui, sans-serif;
+  font-family: var(--ui-font);
+  color: var(--navy);
+  background: #8ac8f8;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { font-family: var(--ui-font); }
+button { font: inherit; cursor: pointer; border: 0; }
+button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+.game-shell { position: relative; width: 100vw; height: 100vh; overflow: hidden; background: #8bcaf9; }
+.scene { position: absolute; inset: 0; }
+.scene canvas { display: block; width: 100% !important; height: 100% !important; }
+
+.menu-screen { position: absolute; inset: 0; display: grid; align-content: start; justify-items: center; pointer-events: none; padding-top: clamp(30px, 4vh, 58px); }
+.brand-lockup { text-align: center; pointer-events: auto; filter: drop-shadow(0 4px 0 rgba(255,255,255,0.25)); }
+.brand-eyebrow { margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.16em; font-size: 12px; font-weight: 800; color: rgba(24, 42, 89, 0.75); }
+.logo { margin: 0; display: grid; justify-items: center; line-height: 0.86; font-weight: 1000; letter-spacing: -0.05em; }
+.logo-blue, .logo-coral { font-size: clamp(64px, 7.3vw, 98px); text-shadow: 0 5px 0 rgba(255,255,255,0.42), 0 10px 18px rgba(25,50,100,0.13); }
+.logo-blue { color: var(--player-blue-dark); }
+.logo-coral { color: var(--buddy-coral-dark); }
+.logo-pill { margin-top: 17px; border-radius: 24px; background: linear-gradient(180deg, #66b5ff, #3b81db); color: white; padding: 11px 42px 14px; font-size: clamp(35px, 3.3vw, 47px); letter-spacing: 0; box-shadow: 0 5px 0 rgba(28,78,151,0.15); }
+.tagline { margin: 18px 0 0; font-size: clamp(18px, 1.45vw, 24px); font-weight: 800; color: var(--navy); }
+
+.menu-card { pointer-events: auto; width: min(760px, calc(100vw - 32px)); margin-top: 24px; padding: 18px; border-radius: 28px; background: rgba(255, 250, 243, 0.95); box-shadow: var(--panel-shadow); border: 2px solid rgba(255,255,255,0.7); }
+.mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.mode-button { min-height: 105px; border-radius: 18px; color: white; display: flex; align-items: center; gap: 14px; padding: 16px 15px; text-align: left; box-shadow: inset 0 2px rgba(255,255,255,0.22), 0 7px 12px rgba(24,42,89,0.12); transition: transform .15s ease, filter .15s ease; }
+.mode-button:hover { transform: translateY(-2px); filter: brightness(1.04); }
+.mode-solo { background: linear-gradient(180deg, #64adff, #367ee4); }
+.mode-coop { background: linear-gradient(180deg, #ff9789, #ec7165); }
+.mode-run { background: linear-gradient(180deg, #68d5a0, #39aa73); }
+.button-icon { font-size: 29px; width: 34px; text-align: center; }
+.buddies-icon { letter-spacing: -8px; font-size: 20px; padding-right: 6px; }
+.mode-button strong { display: block; font-size: 20px; }
+.mode-button small { display: block; margin-top: 5px; font-size: 12px; font-weight: 700; opacity: .94; }
+.controls-title { margin: 18px 0 11px; text-align: center; text-transform: uppercase; font-size: 13px; letter-spacing: .08em; font-weight: 900; }
+.control-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.control-item { border-radius: 14px; background: #fff; padding: 10px 6px; text-align: center; color: var(--navy); font-size: 12px; font-weight: 800; }
+.keycap { display: inline-flex; align-items: center; justify-content: center; min-height: 28px; background: #eef5ff; color: #316cc4; border-radius: 7px; padding: 0 9px; box-shadow: inset 0 -2px rgba(49,108,196,.12); font-size: 12px; font-weight: 900; }
+.control-item .keycap { display: flex; margin: 0 auto 6px; }
+.gamepad-note { text-align: center; margin: 12px 0 0; color: rgba(24,42,89,.7); font-size: 11px; font-weight: 700; }
+
+.hud { position: absolute; inset: 0; pointer-events: none; padding: 30px 34px; }
+.hud-top { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+.timer-pill, .progress-card, .star-pill, .context-card, .respawn-pill, .buddy-status, .toast, .interaction-feedback { background: rgba(255,250,243,.96); box-shadow: var(--panel-shadow); border-radius: 22px; }
+.timer-pill { width: 164px; height: 92px; padding: 15px 16px; display: grid; grid-template-columns: 45px 1fr; grid-template-rows: 48px 18px; align-items: center; }
+.timer-icon { grid-row: span 2; font-size: 46px; line-height: 1; color: var(--player-blue-dark); }
+.timer-pill strong { font-size: 32px; line-height: 1; }
+.timer-pill small { font-size: 12px; color: #4b6ca7; font-weight: 900; }
+.progress-card { min-width: min(470px, 48vw); padding: 17px 28px 15px; text-align: center; }
+.progress-card strong { font-size: 18px; }
+.progress-track { margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 7px; }
+.progress-track span:not(.goal-dot) { width: 24px; height: 24px; border-radius: 50%; border: 3px solid #d7d2ce; position: relative; }
+.progress-track span:not(.goal-dot):not(:first-child)::before { content: ""; width: 10px; height: 3px; background: #d7d2ce; position: absolute; right: 100%; top: 8px; margin-right: 7px; }
+.progress-track span.active { border-color: var(--player-blue); background: var(--player-blue); box-shadow: inset 0 0 0 5px rgba(255,255,255,.7); }
+.goal-dot { font-size: 22px; color: var(--yellow); margin-left: 8px; }
+.star-pill { min-width: 140px; height: 72px; display: flex; align-items: center; justify-content: center; gap: 13px; font-size: 25px; font-weight: 900; }
+.star-pill span { font-size: 34px; color: var(--yellow); }
+.context-card { position: absolute; top: 142px; left: 34px; width: 255px; padding: 21px 20px; }
+.context-card strong { display: block; text-transform: uppercase; font-size: 17px; color: var(--navy); }
+.context-card p { font-weight: 700; font-size: 15px; line-height: 1.45; margin: 11px 0 0; color: #394d78; }
+.buddy-prompt { color: var(--buddy-coral-dark) !important; }
+.rescue-callout { position: absolute; bottom: 106px; left: 50%; transform: translateX(-50%); padding: 20px 36px; border-radius: 24px; font-size: clamp(21px, 2vw, 30px); font-weight: 900; color: var(--navy); background: rgba(255,250,243,.98); box-shadow: 0 0 28px rgba(90,167,255,.35), var(--panel-shadow); }
+.rescue-callout.linked { color: var(--success); }
+.interaction-feedback { position: absolute; bottom: 105px; left: 34px; max-width: 320px; padding: 13px 17px; color: var(--navy); font-size: 14px; font-weight: 850; border: 2px solid rgba(255,211,122,.56); }
+
+.interaction-feedback.rescue-feedback { bottom: 177px; max-width: 235px; }
+.toast { position: absolute; top: 126px; left: 50%; transform: translateX(-50%); padding: 16px 27px; color: #278e52; font-size: 18px; font-weight: 900; background: #ecffdc; }
+.respawn-pill { position: absolute; bottom: 30px; left: 34px; padding: 14px 18px; display: flex; align-items: center; gap: 11px; font-size: 16px; font-weight: 850; }
+.key-small { font-size: 18px; min-height: 36px; min-width: 36px; color: white; background: var(--player-blue); border-radius: 50%; }
+.buddy-status { position: absolute; right: 34px; bottom: 30px; padding: 14px 17px; display: flex; align-items: center; gap: 9px; width: 272px; }
+.buddy-dot { display: inline-block; width: 35px; height: 35px; border-radius: 50%; }
+.buddy-dot.blue { background: var(--player-blue); }
+.buddy-dot.coral { background: var(--buddy-coral); }
+.buddy-status strong { display: block; font-size: 14px; }
+.buddy-status small { display: block; font-size: 11px; margin-top: 3px; color: #455e92; }
+
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: auto; }
+.veil { background: rgba(28,53,92,.42); backdrop-filter: blur(6px); }
+.modal { background: rgba(255,250,243,.98); border: 2px solid rgba(255,255,255,.85); border-radius: 32px; box-shadow: 0 26px 64px rgba(18,38,76,.3); padding: 25px; color: var(--navy); }
+.pause-modal { width: min(470px, calc(100vw - 32px)); text-align: center; }
+.pause-modal h2 { margin: 0; font-size: 58px; line-height: 1; color: var(--player-blue-dark); letter-spacing: -.05em; }
+.pause-modal p { margin: 12px 0 20px; font-weight: 700; font-size: 17px; }
+.dialog-button { display: block; width: 100%; border-radius: 17px; padding: 16px 14px; margin: 10px 0; font-weight: 900; font-size: 19px; }
+.dialog-button.primary { background: linear-gradient(180deg,#63acff,#367ee4); color: white; }
+.dialog-button.secondary { color: #367ee4; background: white; box-shadow: inset 0 0 0 2px #acd1ff; }
+.dialog-button.coral { background: linear-gradient(180deg,#ff9687,#ee7165); color: white; }
+.controls-reminder { margin-top: 18px; border-top: 2px dashed #dfd5c7; padding: 17px 4px 2px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 12px; font-weight: 700; }
+.controls-reminder strong { grid-column: 1 / -1; text-transform: uppercase; margin-bottom: 6px; }
+.controls-reminder b { display: block; margin-bottom: 4px; padding: 6px 3px; border-radius: 8px; background: #edf4ff; color: #367ee4; }
+.completion-celebration { background: rgba(128,198,248,.16); }
+.completion-modal { width: min(566px, calc(100vw - 32px)); text-align: center; padding: 26px 28px 27px; }
+.completion-ribbon { margin: -9px -4px 18px; padding: 15px 10px; border-radius: 19px; font-size: clamp(24px, 2.4vw, 31px); font-weight: 1000; color: white; background: linear-gradient(180deg,#60adff,#367ee4); }
+.completion-modal h2 { margin: 0; font-size: 37px; color: var(--navy); }
+.result-time { margin: 17px 0 16px; display: grid; gap: 5px; }
+.result-time small { font-size: 13px; font-weight: 900; text-transform: uppercase; }
+.result-time strong { font-size: 47px; color: var(--player-blue-dark); }
+.completion-modal p { margin: 0 auto 22px; padding: 14px; border-radius: 14px; background: #f3f8ef; font-size: 18px; font-weight: 800; }
+.completion-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.completion-actions .dialog-button { margin: 0; }
+
+@media (max-width: 900px) {
+  .hud { padding: 16px; }
+  .progress-card { min-width: 320px; }
+  .context-card { top: 116px; left: 16px; width: 220px; }
+  .buddy-status { display: none; }
+  .timer-pill { width: 135px; transform: scale(.87); transform-origin: top left; }
+  .star-pill { transform: scale(.87); transform-origin: top right; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* WB-006 lightweight title state: preserves the playful silhouette while gameplay WebGL loads only after Play. */
+.menu-screen { isolation: isolate; background: linear-gradient(180deg, #87cafa 0%, #bfe6ff 58%, #87d8bc 58.2%, #60be98 100%); }
+.menu-sky { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.menu-cloud { position: absolute; display: block; height: 44px; width: 156px; border-radius: 44px; background: rgba(255,255,255,.7); filter: blur(.2px); }
+.menu-cloud::before, .menu-cloud::after { content: ""; position: absolute; background: inherit; border-radius: 50%; }
+.menu-cloud::before { width: 62px; height: 62px; left: 27px; bottom: 14px; }
+.menu-cloud::after { width: 48px; height: 48px; right: 30px; bottom: 16px; }
+.cloud-one { left: clamp(22px, 9vw, 150px); top: 19%; transform: scale(1.1); }
+.cloud-two { right: clamp(28px, 11vw, 172px); top: 29%; transform: scale(.8); opacity: .78; }
+.menu-island { position: absolute; width: min(600px, 54vw); height: 76px; left: 50%; bottom: 28px; transform: translateX(-50%); border-radius: 50%; background: linear-gradient(#63bb91, #44966f); box-shadow: 0 22px 0 -3px rgba(62,115,83,.4); }
+.menu-buddy { position: absolute; bottom: 77px; width: clamp(62px, 6vw, 94px); height: clamp(84px, 8vw, 118px); border-radius: 46% 46% 42% 42%; box-shadow: inset -12px -10px rgba(27,66,119,.1), 0 10px 14px rgba(22,57,94,.12); }
+.menu-buddy::before, .menu-buddy::after { content: ""; position: absolute; width: 12px; height: 16px; background: #1d355d; border-radius: 50%; top: 34%; }
+.menu-buddy::before { left: 27%; }
+.menu-buddy::after { right: 27%; }
+.menu-buddy i { position: absolute; left: 50%; top: 54%; width: 25px; height: 12px; border-bottom: 4px solid #1d355d; border-radius: 0 0 22px 22px; transform: translateX(-50%); }
+.menu-buddy-blue { left: calc(50% - clamp(94px, 7vw, 126px)); background: linear-gradient(155deg,#6bb6ff,#4286e7); transform: rotate(-4deg); }
+.menu-buddy-coral { left: calc(50% + clamp(15px, 1.5vw, 26px)); background: linear-gradient(155deg,#ffac94,#ef736b); transform: rotate(5deg); }
+.scene-loading { position: absolute; inset: 0; z-index: 2; display: flex; gap: 11px; align-items: center; justify-content: center; flex-wrap: wrap; background: linear-gradient(180deg,#87cafa,#c9ecff); color: var(--navy); font-size: 18px; font-weight: 900; }
+.scene-loading strong { flex-basis: 100%; text-align: center; margin-top: 4px; }
+.loading-buddy { display: block; width: 34px; height: 40px; border-radius: 48%; animation: loading-wobble .72s ease-in-out infinite alternate; }
+.loading-buddy.blue { background: var(--player-blue); }
+.loading-buddy.coral { background: var(--buddy-coral); animation-delay: -.28s; }
+@keyframes loading-wobble { to { transform: translateY(-9px) rotate(4deg); } }
+
+/* Keep instructional panels present only at actions; make the visible prompt smaller and easier to see past. */
+.context-card { width: min(245px, calc(100vw - 32px)); padding: 15px 16px; border-radius: 18px; background: rgba(255,250,243,.91); }
+.context-card strong { font-size: 14px; }
+.context-card p { margin-top: 7px; font-size: 13px; line-height: 1.35; }
+.respawn-pill { padding: 10px 14px; font-size: 13px; opacity: .92; }
+
+/* Finale treatment: CSS-only celebration closes the concept gap without adding downloads. */
+.completion-celebration { background: radial-gradient(circle at 50% 26%, rgba(255,244,169,.42), rgba(68,104,162,.46) 62%); overflow: hidden; }
+.celebration-burst { position: absolute; inset: 0; pointer-events: none; }
+.celebration-burst span { --angle: calc(var(--piece) * 36deg); position: absolute; top: 47%; left: 50%; width: 10px; height: 22px; border-radius: 5px; background: var(--yellow); transform: rotate(var(--angle)) translateY(-292px) rotate(calc(var(--angle) * -1)); animation: confetti-rise 1.2s cubic-bezier(.2,.7,.32,1) both; animation-delay: calc(var(--piece) * 20ms); }
+.celebration-burst span:nth-child(3n) { background: var(--buddy-coral); height: 15px; }
+.celebration-burst span:nth-child(3n + 1) { background: var(--player-blue); }
+@keyframes confetti-rise { from { opacity: 0; transform: rotate(var(--angle)) translateY(-160px) scale(.1); } to { opacity: 1; } }
+.completion-modal { padding-top: 22px; }
+.completion-buddies { height: 66px; margin: 0 auto 10px; display: flex; align-items: end; justify-content: center; gap: 16px; }
+.result-buddy { position: relative; width: 43px; height: 55px; border-radius: 48% 48% 42% 42%; display: block; box-shadow: inset -6px -5px rgba(25,47,93,.12); }
+.result-buddy.blue { background: var(--player-blue); transform: rotate(-5deg); }
+.result-buddy.coral { background: var(--buddy-coral); transform: rotate(5deg); }
+.result-buddy::before, .result-buddy::after { content: ""; position: absolute; top: 19px; width: 6px; height: 8px; border-radius: 50%; background: #243961; }
+.result-buddy::before { left: 13px; }
+.result-buddy::after { right: 13px; }
+.result-buddy i { position: absolute; width: 14px; height: 7px; left: 50%; top: 32px; transform: translateX(-50%); border-bottom: 3px solid #243961; border-radius: 0 0 16px 16px; }
+.result-star { color: var(--yellow); font-size: 38px; filter: drop-shadow(0 3px 1px rgba(65,53,20,.14)); animation: result-pop 1.1s ease-in-out infinite alternate; }
+@keyframes result-pop { to { transform: translateY(-4px) scale(1.08); } }
+.reward-pill { display: inline-flex; gap: 9px; align-items: center; margin: -8px auto 18px; padding: 8px 16px; border-radius: 999px; background: #fff3c6; color: #8a5d13; font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
+.reward-pill span { color: #f2b31d; font-size: 18px; }
+
+@media (max-height: 760px) {
+  .menu-screen { padding-top: 18px; }
+  .brand-eyebrow, .tagline { display: none; }
+  .menu-card { margin-top: 15px; }
+  .menu-buddy { opacity: .55; }
+}
+.completion-shell { background: linear-gradient(180deg, #92d3ff 0%, #cfefff 52%, #77caa7 100%); }
+
+@media (max-height: 560px) {
+  .menu-screen { padding-top: 10px; }
+  .brand-lockup { transform: none; }
+  .logo-blue, .logo-coral { font-size: clamp(40px, 7vw, 52px); text-shadow: 0 3px 0 rgba(255,255,255,0.42), 0 6px 10px rgba(25,50,100,0.13); }
+  .logo-pill { margin-top: 8px; padding: 7px 31px 9px; border-radius: 18px; font-size: clamp(23px, 3.3vw, 29px); }
+  .menu-card { width: min(700px, calc(100vw - 28px)); margin-top: 10px; padding: 11px; border-radius: 22px; }
+  .mode-grid { gap: 9px; }
+  .mode-button { min-height: 68px; padding: 9px 12px; border-radius: 15px; gap: 9px; }
+  .mode-button strong { font-size: 15px; }
+  .mode-button small { margin-top: 3px; font-size: 9px; }
+  .button-icon { font-size: 22px; width: 25px; }
+  .controls-title { margin: 10px 0 7px; font-size: 11px; }
+  .control-grid { gap: 5px; }
+  .control-item { border-radius: 10px; padding: 5px 3px; font-size: 10px; }
+  .control-item .keycap { margin-bottom: 4px; min-height: 20px; font-size: 10px; padding: 0 5px; }
+  .gamepad-note { margin-top: 6px; font-size: 9px; }
+  .menu-island, .menu-buddy { display: none; }
+  .completion-modal { width: min(500px, calc(100vw - 26px)); padding: 13px 18px 14px; border-radius: 25px; }
+  .completion-ribbon { margin: -2px 0 8px; padding: 9px 8px; font-size: 21px; border-radius: 15px; }
+  .completion-buddies { height: 40px; margin-bottom: 4px; gap: 10px; }
+  .result-buddy { width: 30px; height: 39px; }
+  .result-buddy::before, .result-buddy::after { top: 13px; width: 5px; height: 6px; }
+  .result-buddy::before { left: 9px; }
+  .result-buddy::after { right: 9px; }
+  .result-buddy i { top: 22px; width: 11px; height: 6px; }
+  .result-star { font-size: 28px; }
+  .completion-modal h2 { font-size: 27px; }
+  .result-time { margin: 7px 0 7px; gap: 2px; }
+  .result-time small { font-size: 10px; }
+  .result-time strong { font-size: 35px; }
+  .completion-modal p { margin-bottom: 8px; padding: 8px; font-size: 14px; }
+  .reward-pill { margin: 0 auto 9px; padding: 5px 12px; font-size: 10px; }
+  .reward-pill span { font-size: 14px; }
+  .completion-actions { gap: 8px; }
+  .completion-actions .dialog-button { padding: 10px 8px; font-size: 15px; border-radius: 13px; }
+}
+
+/* WB-007 pre-playtest readiness controls and accessible modal focus. */
+.preplay-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 12px 0 8px; }
+.quality-picker { display: inline-flex; align-items: center; gap: 5px; padding: 5px; border-radius: 999px; background: rgba(236,244,255,.92); font-size: 11px; font-weight: 900; color: var(--navy); }
+.quality-picker span { padding: 0 6px; text-transform: uppercase; letter-spacing: .04em; }
+.quality-picker button { border: 0; padding: 7px 10px; border-radius: 999px; background: transparent; font: inherit; color: #53637f; cursor: pointer; }
+.quality-picker button[aria-pressed="true"] { color: white; background: var(--player-blue-dark); box-shadow: 0 2px 6px rgba(36,84,157,.22); }
+.controller-status { margin: 0; padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,.84); color: #61718a; font-size: 11px; font-weight: 900; text-transform: uppercase; }
+.controller-status[data-connected="true"] { color: #287453; background: #e7fbef; }
+.modal :is(button,[href],[tabindex]):focus-visible, .quality-picker button:focus-visible, .mode-button:focus-visible { outline: 3px solid #173f7e; outline-offset: 3px; }
+html[data-graphics-preset="reduced"] .celebration-burst, html[data-graphics-preset="reduced"] .menu-cloud { display: none; }
+
+@media (max-height: 640px) {
+  .menu-screen { padding-top: 8px; }
+  .brand-eyebrow, .tagline { display: none; }
+  .logo-blue, .logo-coral { font-size: clamp(39px, 7vw, 50px); }
+  .logo-pill { margin-top: 7px; padding: 6px 28px 8px; font-size: clamp(22px, 3.2vw, 28px); }
+  .menu-card { width: min(744px, calc(100vw - 26px)); margin-top: 8px; padding: 10px 12px; }
+  .mode-grid { gap: 8px; }
+  .mode-button { min-height: 64px; padding: 8px 10px; gap: 8px; }
+  .mode-button strong { font-size: 14px; }
+  .mode-button small { font-size: 9px; }
+  .preplay-row { margin: 8px 0 5px; }
+  .controls-title { margin: 7px 0 5px; }
+  .control-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+  .control-item { padding: 5px 2px; font-size: 10px; }
+  .control-item .keycap { margin-bottom: 3px; min-height: 19px; font-size: 10px; }
+  .gamepad-note { margin-top: 5px; font-size: 9px; }
+  .menu-island, .menu-buddy { display: none; }
+}
+
+.hand-state-strip {
+  position: fixed;
+  left: 50%;
+  bottom: 5.6rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.55rem;
+  z-index: 20;
+  pointer-events: none;
+}
+.hand-state {
+  border-radius: 999px;
+  padding: 0.46rem 0.82rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #513111;
+  background: rgba(255, 211, 122, 0.96);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.78), 0 0 22px rgba(255, 211, 122, 0.46);
+}

@@ -1,0 +1,26 @@
+import { chromium } from 'playwright'; import { mkdir,writeFile } from 'node:fs/promises'; import { loadRealAppThroughRequestBridge } from '../tests/browser/helpers/real-server-bridge.mjs';
+const source=process.env.REAL_SERVER_URL||'http://127.0.0.1:4243'; process.env.REAL_SERVER_URL=source; const out='docs/validation-reports/wb-008-screenshots'; const path='docs/validation-reports/wb-008-crate-respawn-proof.json'; const report={story:'WB-008 crate pushed over ledge and returned to spawn',browserMode:'headless Chromium + Xvfb fallback',bridgeUsed:true,appSource:source,consoleErrors:[],pageErrors:[],networkFailures:[],samples:[],result:'running'}; await mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox','--enable-webgl','--enable-webgl2','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-sandbox']});
+try { const page=await browser.newPage({viewport:{width:640,height:400},reducedMotion:'reduce'}); page.on('console',m=>{if(m.type()==='error')report.consoleErrors.push(m.text())});page.on('pageerror',e=>report.pageErrors.push(e.message));page.on('requestfailed',r=>report.networkFailures.push(`${r.url()} ${r.failure()?.errorText||''}`)); const bridge=await loadRealAppThroughRequestBridge(page,'/');report.bridgedRequests=bridge.requests; await page.getByRole('button',{name:/Play Solo/i}).hover(); await page.waitForTimeout(300); await page.getByRole('button',{name:/Play Solo/i}).click(); await page.waitForFunction(()=>window.__GAME_READY__===true&&document.documentElement.dataset.player1Grounded==='true'&&document.documentElement.dataset.tutorialCrateZ,undefined,{timeout:25000});
+ const box=await page.locator('canvas').boundingBox(); if(!box) throw new Error('canvas missing'); const cx=box.x+box.width*.5,cy=box.y+box.height*.5; await page.mouse.move(cx,cy); await page.mouse.down({button:'middle'}); await page.mouse.move(cx+91,cy,{steps:8}); await page.mouse.up({button:'middle'}); await page.waitForTimeout(160);
+ const pos=()=>page.evaluate(()=>({px:Number(document.documentElement.dataset.player1X),pz:Number(document.documentElement.dataset.player1Z),cx:Number(document.documentElement.dataset.tutorialCrateX),cy:Number(document.documentElement.dataset.tutorialCrateY),cz:Number(document.documentElement.dataset.tutorialCrateZ),reset:document.documentElement.dataset.tutorialCrateRespawned==='true'}));
+ const tap=async(code, ms=110)=>{await page.keyboard.down(code); await page.waitForTimeout(ms); await page.keyboard.up(code); await page.waitForTimeout(160);};
+ for(let i=0;i<28;i++){ const a=await pos(); if(Math.abs(a.px-.8)<.3) break; await tap(a.px<.8?'KeyD':'KeyA'); }
+ for(let i=0;i<22;i++){ const a=await pos(); if(a.pz>0.65 && a.pz<1.2) break; await tap(a.pz<0.65?'KeyS':'KeyW'); }
+ report.aligned=await pos();
+ if(Math.abs(report.aligned.px-.8)>.42 || report.aligned.pz<.35 || report.aligned.pz>1.35) throw new Error(`Could not align behind crate: ${JSON.stringify(report.aligned)}`);
+ await page.keyboard.down('KeyS');
+ const started=Date.now(); let maxZ=-Infinity, minY=Infinity; let correction=null;
+ while(Date.now()-started<35000){ const sample=await pos(); maxZ=Math.max(maxZ,sample.cz); minY=Math.min(minY,sample.cy); if(report.samples.length<15 || sample.reset) report.samples.push(sample); if(sample.reset) break;
+   const dx=sample.cx-sample.px;
+   const nextCorrection=dx>.33?'KeyD':dx<-.33?'KeyA':null;
+   if(nextCorrection!==correction){ if(correction) await page.keyboard.up(correction).catch(()=>undefined); if(nextCorrection) await page.keyboard.down(nextCorrection); correction=nextCorrection; }
+   await page.waitForTimeout(150);
+ }
+ if(correction) await page.keyboard.up(correction).catch(()=>undefined); await page.keyboard.up('KeyS'); report.maxCrateZ=Number(maxZ.toFixed(3)); report.minCrateY=Number(minY.toFixed(3));
+ await page.waitForFunction(() => document.documentElement.dataset.tutorialCrateRespawned === 'true' && Math.abs(Number(document.documentElement.dataset.tutorialCrateX) - 0.8) < 0.3 && Math.abs(Number(document.documentElement.dataset.tutorialCrateZ) - 2.2) < 0.3, undefined, { timeout: 5000 });
+ report.final=await pos();
+ await page.keyboard.press('KeyR'); await page.waitForFunction(() => document.documentElement.dataset.player1Grounded === 'true' && Number(document.documentElement.dataset.player1X) < -3, undefined, { timeout: 10000 }); report.playerRecovered=true;
+ report.webgl=await page.evaluate(()=>{const gl=document.querySelector('canvas')?.getContext('webgl2')||document.querySelector('canvas')?.getContext('webgl');return{available:Boolean(gl),glError:gl?.getError()??null}}); report.screenshotPath=`${out}/wb-008-crate-respawned.png`; await page.screenshot({path:report.screenshotPath}); report.result=report.final.reset&&report.playerRecovered&&Math.abs(report.final.cx-.8)<.3&&Math.abs(report.final.cz-2.2)<.3&&report.webgl.available&&report.webgl.glError===0&&!report.consoleErrors.length&&!report.pageErrors.length&&!report.networkFailures.length?'pass':'fail';
+} catch(e){report.failure=e instanceof Error?e.message:String(e);report.result='fail';}
+finally { await writeFile(path,JSON.stringify(report,null,2)); console.log(JSON.stringify(report,null,2)); process.exit(report.result==='pass'?0:1); }

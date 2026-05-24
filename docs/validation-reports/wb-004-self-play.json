@@ -1,0 +1,61 @@
+{
+  "story": "WB-004",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "localhostDirect": "blocked; see wb-004-correction-direct-probe.json for current-build evidence",
+  "bridgeUsed": true,
+  "appSource": "real Vite preview server bytes via fetch bridge (http://127.0.0.1:4182)",
+  "viewport": "720x450",
+  "screenshotPolicy": "capture completion only during the long SwiftShader traversal; intermediate state assertions are logged as timed DOM evidence to avoid the documented screenshot renderer failure",
+  "steps": [
+    {
+      "label": "Play Solo started",
+      "at": "4.46s"
+    },
+    {
+      "label": "Orbit camera aligned to the +X route before camera-relative traversal",
+      "at": "6.63s"
+    },
+    {
+      "label": "Heavy-door switch opened the route",
+      "at": "13.24s",
+      "matched": "Door open — follow the glowing path\\."
+    },
+    {
+      "label": "Rope finale marker reached",
+      "at": "22.75s",
+      "matched": "Hold a grab hand to swing\\."
+    },
+    {
+      "label": "Left hand acquired the rope",
+      "at": "22.95s",
+      "matched": "Rope held — release toward the gate!"
+    },
+    {
+      "label": "Rope release applied bounded launch assistance",
+      "at": "24.02s",
+      "matched": "Launched — reach the finish gate!"
+    },
+    {
+      "label": "Finish gate reached and completion overlay displayed",
+      "at": "26.64s",
+      "matched": "Great wobble!"
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "pageEvents": [],
+  "networkFailures": [],
+  "result": "pass",
+  "loadedAssets": [
+    "http://127.0.0.1:4182/assets/index-btGvsf8y.css",
+    "http://127.0.0.1:4182/assets/index-BJUbJBKj.js"
+  ],
+  "webgl": {
+    "available": true,
+    "glError": 0,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "sceneReady": true
+  },
+  "screenshotPath": "docs/validation-reports/wb-004-self-play-screenshots/wb-004-completed.png",
+  "elapsed": "27.84s"
+}

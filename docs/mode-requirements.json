@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "1.4.0",
+  "description": "Machine-readable source of truth for playbook mode, runtime, and project-type requirements. Version 1.4 adds role-gate quality mapping so role coverage, gate ownership, and product-quality evidence stay synchronized across docs, templates, scripts, and reports.",
+  "modes": {
+    "learning": {
+      "requires": [
+        "docs/hard-gates.md",
+        "docs/project-brief.md",
+        "docs/requirements.md",
+        "docs/guided-build-workflow.md",
+        "docs/product.md",
+        "docs/architecture.md",
+        "docs/code-architecture.md",
+        "docs/stories.md",
+        "docs/validation.md",
+        "docs/git-workflow.md",
+        "docs/roles-and-raci.md",
+        "docs/signoff-ledger.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "criticalDocs": [
+        "docs/project-brief.md",
+        "docs/requirements.md",
+        "docs/product.md",
+        "docs/stories.md",
+        "docs/validation.md",
+        "docs/roles-and-raci.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ]
+    },
+    "mvp": {
+      "requires": [
+        "docs/code-review.md",
+        "docs/testing-strategy.md",
+        "docs/test-matrix.md",
+        "docs/environments.md",
+        "docs/dependency-policy.md",
+        "docs/decisions/",
+        "docs/traceability-matrix.md",
+        "docs/qa-test-cases.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/code-review.md",
+        "docs/testing-strategy.md",
+        "docs/test-matrix.md",
+        "docs/environments.md",
+        "docs/dependency-policy.md",
+        "docs/traceability-matrix.md",
+        "docs/qa-test-cases.md",
+        "docs/role-gate-quality-map.md"
+      ]
+    },
+    "real-project": {
+      "requires": [
+        "docs/system-design.md",
+        "docs/api-contract.md",
+        "docs/data-model.md",
+        "docs/security.md",
+        "docs/agent-security.md",
+        "docs/tool-permissions.md",
+        "docs/secure-sdlc.md",
+        "docs/security-testing.md",
+        "docs/risk-register.md",
+        "docs/ci-cd.md",
+        "docs/release.md",
+        "docs/production-readiness.md",
+        "docs/accessibility.md",
+        "docs/performance-budget.md",
+        "docs/license-compliance.md",
+        "docs/privacy.md",
+        "docs/security-asvs-map.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/architecture.md",
+        "docs/system-design.md",
+        "docs/api-contract.md",
+        "docs/data-model.md",
+        "docs/security.md",
+        "docs/agent-security.md",
+        "docs/secure-sdlc.md",
+        "docs/security-testing.md",
+        "docs/ci-cd.md",
+        "docs/release.md",
+        "docs/risk-register.md",
+        "docs/production-readiness.md",
+        "docs/accessibility.md",
+        "docs/performance-budget.md",
+        "docs/license-compliance.md",
+        "docs/privacy.md",
+        "docs/security-asvs-map.md",
+        "docs/role-gate-quality-map.md"
+      ]
+    },
+    "production": {
+      "requires": [
+        "docs/observability.md",
+        "docs/incidents.md",
+        "docs/threat-model.md",
+        "docs/data-management.md",
+        "docs/supply-chain-security.md",
+        "docs/vulnerability-response.md",
+        "docs/security-exceptions.md",
+        "docs/release-strategy.md",
+        "docs/release-risk-classification.md",
+        "docs/engineering-metrics.md",
+        "docs/evidence-ledger.md",
+        "docs/standards-map.md",
+        "docs/project-validation.md",
+        "docs/status-vocabulary.md",
+        "docs/playbook-governance.md",
+        "docs/runbooks/",
+        "docs/signoff-ledger.md",
+        "docs/playtest-protocol.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/production-readiness.md",
+        "docs/observability.md",
+        "docs/incidents.md",
+        "docs/threat-model.md",
+        "docs/data-management.md",
+        "docs/supply-chain-security.md",
+        "docs/vulnerability-response.md",
+        "docs/security-exceptions.md",
+        "docs/release-strategy.md",
+        "docs/release-risk-classification.md",
+        "docs/engineering-metrics.md",
+        "docs/evidence-ledger.md",
+        "docs/standards-map.md",
+        "docs/signoff-ledger.md",
+        "docs/role-gate-quality-map.md"
+      ]
+    }
+  },
+  "runtimeAdapters": {
+    "generic": {
+      "requires": [
+        ".agent/project-state.md",
+        ".agent/memory-policy.md"
+      ],
+      "entrypoint": "AGENTS.md",
+      "description": "Portable default for Codex/Cursor/ChatGPT-style coding agents."
+    },
+    "claude": {
+      "requires": [
+        ".claude/commands/"
+      ],
+      "entrypoint": "CLAUDE.md",
+      "description": "Claude Code command workflows."
+    },
+    "hermes": {
+      "requires": [
+        ".hermes/workflows/",
+        ".hermes/project-state.md",
+        ".hermes/memory-policy.md"
+      ],
+      "entrypoint": ".hermes/context.md",
+      "description": "Hermes-specific context and workflows."
+    }
+  },
+  "projectTypes": {
+    "none": {
+      "requires": [
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/role-gate-quality-map.md"
+      ],
+      "description": "No project-type-specific requirements."
+    },
+    "ui": {
+      "requires": [
+        "DESIGN.md",
+        "docs/component-contract.md",
+        "docs/browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/visual-qa.md",
+        "docs/composition-qa.md",
+        "playwright.config.mjs",
+        "tests/browser/",
+        "docs/validation-reports/browser-evidence-template.md",
+        "docs/design-assets.md",
+        "design-assets/",
+        "docs/accessibility.md",
+        "docs/performance-budget.md",
+        "docs/qa-test-cases.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "criticalDocs": [
+        "DESIGN.md",
+        "docs/component-contract.md",
+        "docs/browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/composition-qa.md",
+        "docs/design-assets.md",
+        "docs/accessibility.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "description": "User-interface project or feature."
+    },
+    "api": {
+      "requires": [
+        "docs/api-contract.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/api-contract.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "description": "HTTP/API or service-contract project."
+    },
+    "backend": {
+      "requires": [
+        "docs/data-model.md",
+        "docs/testing-strategy.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/data-model.md",
+        "docs/testing-strategy.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "description": "Backend service or job project without a public HTTP API contract yet. Requires data/state ownership and test strategy even when no public API exists."
+    },
+    "cli": {
+      "requires": [
+        "docs/api-contract.md",
+        "docs/testing-strategy.md",
+        "docs/test-matrix.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "criticalDocs": [
+        "docs/api-contract.md",
+        "docs/testing-strategy.md",
+        "docs/test-matrix.md",
+        "docs/role-gate-quality-map.md"
+      ],
+      "description": "Command-line or local tool project. Use docs/api-contract.md as the command contract: commands, flags, inputs, outputs, exit codes, and error behavior."
+    },
+    "mixed": {
+      "requires": [
+        "DESIGN.md",
+        "docs/component-contract.md",
+        "docs/browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/visual-qa.md",
+        "docs/composition-qa.md",
+        "docs/api-contract.md",
+        "playwright.config.mjs",
+        "tests/browser/",
+        "docs/validation-reports/browser-evidence-template.md",
+        "docs/design-assets.md",
+        "design-assets/",
+        "docs/accessibility.md",
+        "docs/performance-budget.md",
+        "docs/qa-test-cases.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "criticalDocs": [
+        "DESIGN.md",
+        "docs/component-contract.md",
+        "docs/browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/composition-qa.md",
+        "docs/api-contract.md",
+        "docs/design-assets.md",
+        "docs/accessibility.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "description": "UI plus API contract project. Add backend with --project-type ui,backend when persistent state, backend jobs, or data ownership exist."
+    },
+    "game": {
+      "requires": [
+        "DESIGN.md",
+        "docs/design-brief.md",
+        "docs/design-system.md",
+        "docs/design-critique.md",
+        "docs/component-contract.md",
+        "docs/browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/visual-qa.md",
+        "docs/composition-qa.md",
+        "docs/game-project-adoption.md",
+        "docs/test-matrix.md",
+        "docs/risk-register.md",
+        "docs/definition-of-done.md",
+        "docs/evidence-ledger.md",
+        "playwright.config.mjs",
+        "tests/browser/",
+        "docs/validation-reports/browser-evidence-template.md",
+        "docs/design-assets.md",
+        "design-assets/",
+        "docs/accessibility.md",
+        "docs/performance-budget.md",
+        "docs/qa-test-cases.md",
+        "docs/playtest-protocol.md",
+        "docs/license-compliance.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "criticalDocs": [
+        "DESIGN.md",
+        "docs/design-brief.md",
+        "docs/component-contract.md",
+        "docs/browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/composition-qa.md",
+        "docs/visual-qa.md",
+        "docs/game-project-adoption.md",
+        "docs/stories.md",
+        "docs/design-assets.md",
+        "docs/accessibility.md",
+        "docs/playtest-protocol.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "description": "Game project or vertical slice. For 3D browser games, use game,web3d. Requires design intake, player-facing readiness, design conformance, browser/WebGL evidence, sandbox playability, and separate human playtest gates."
+    },
+    "web3d": {
+      "requires": [
+        "docs/3d-web-game-architecture.md",
+        "docs/3d-asset-pipeline.md",
+        "docs/3d-physics-workers.md",
+        "docs/3d-multiplayer-security.md",
+        "docs/3d-browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/composition-qa.md",
+        "tests/browser/web3d-canvas-ready.spec.mjs",
+        "docs/design-assets.md",
+        "design-assets/",
+        "docs/license-compliance.md",
+        "docs/performance-budget.md",
+        "docs/accessibility.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "criticalDocs": [
+        "docs/3d-web-game-architecture.md",
+        "docs/3d-asset-pipeline.md",
+        "docs/3d-browser-testing.md",
+        "docs/browser-interaction-qa.md",
+        "docs/composition-qa.md",
+        "docs/license-compliance.md",
+        "docs/performance-budget.md",
+        "docs/product-quality-system.md",
+        "docs/role-gate-quality-map.md",
+        "docs/role-thinking-protocols.md",
+        "docs/plan-quality.md"
+      ],
+      "description": "Browser 3D/WebGL/WebGPU project or feature. Combine with game as game,web3d for 3D games. Requires engine/rendering decision, asset pipeline, physics/threading policy, canvas evidence, and multiplayer/security gates when applicable."
+    }
+  },
+  "modeOrder": [
+    "learning",
+    "mvp",
+    "real-project",
+    "production"
+  ]
+}

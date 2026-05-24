@@ -1,0 +1,45 @@
+{
+  "story": "WB-004 corrective controls slice",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "executable": "/usr/bin/chromium",
+  "localhostDirect": "not_checked_in_this_script",
+  "bridgeUsed": true,
+  "appSource": "real Vite preview server via fetch bridge (http://127.0.0.1:4176)",
+  "webgl": {
+    "available": true,
+    "error": 0,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "steps": [
+    "Play Solo settled on platform; grounded stance captured.",
+    "Space jump triggered from grounded state; airborne frame captured near the arc apex.",
+    "Player returned to ground after jump.",
+    "Middle-drag changed the orbit camera view without consuming hand-grab input.",
+    "Player moved right; character facing visual captured after motion."
+  ],
+  "screenshots": [
+    "docs/validation-reports/wb-004-correction-screenshots/01-grounded-stance.png",
+    "docs/validation-reports/wb-004-correction-screenshots/02-jump-airborne.png",
+    "docs/validation-reports/wb-004-correction-screenshots/03-jump-landed.png",
+    "docs/validation-reports/wb-004-correction-screenshots/04-camera-orbit-after-drag.png",
+    "docs/validation-reports/wb-004-correction-screenshots/05-facing-after-right-movement.png"
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "result": "pass",
+  "telemetry": {
+    "stance": {
+      "y": 1.199,
+      "grounded": "true"
+    },
+    "jump": {
+      "y": 2.533,
+      "grounded": "false"
+    },
+    "landed": {
+      "y": 1.199,
+      "grounded": "true"
+    }
+  }
+}

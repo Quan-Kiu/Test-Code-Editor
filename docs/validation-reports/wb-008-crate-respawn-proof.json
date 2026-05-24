@@ -1,0 +1,175 @@
+{
+  "story": "WB-008 crate pushed over ledge and returned to spawn",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "bridgeUsed": true,
+  "appSource": "http://127.0.0.1:4243",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "samples": [
+    {
+      "px": 0.955,
+      "pz": 0.902,
+      "cx": 0.797,
+      "cy": 0.525,
+      "cz": 2.313,
+      "reset": false
+    },
+    {
+      "px": 0.955,
+      "pz": 0.902,
+      "cx": 0.796,
+      "cy": 0.528,
+      "cz": 2.419,
+      "reset": false
+    },
+    {
+      "px": 0.96,
+      "pz": 1.509,
+      "cx": 0.775,
+      "cy": 0.523,
+      "cz": 2.836,
+      "reset": false
+    },
+    {
+      "px": 0.96,
+      "pz": 1.509,
+      "cx": 0.755,
+      "cy": 0.524,
+      "cz": 3.175,
+      "reset": false
+    },
+    {
+      "px": 0.982,
+      "pz": 2.377,
+      "cx": 0.718,
+      "cy": 0.524,
+      "cz": 3.705,
+      "reset": false
+    },
+    {
+      "px": 0.982,
+      "pz": 2.377,
+      "cx": 0.686,
+      "cy": 0.524,
+      "cz": 4.04,
+      "reset": false
+    },
+    {
+      "px": 1.016,
+      "pz": 3.274,
+      "cx": 0.659,
+      "cy": 0.523,
+      "cz": 4.273,
+      "reset": false
+    },
+    {
+      "px": 1.016,
+      "pz": 3.274,
+      "cx": 0.622,
+      "cy": 0.535,
+      "cz": 4.627,
+      "reset": false
+    },
+    {
+      "px": 0.602,
+      "pz": 4.011,
+      "cx": 0.314,
+      "cy": 0.522,
+      "cz": 5.064,
+      "reset": false
+    },
+    {
+      "px": 0.602,
+      "pz": 4.011,
+      "cx": 0.169,
+      "cy": 0.458,
+      "cz": 5.302,
+      "reset": false
+    },
+    {
+      "px": 0.602,
+      "pz": 4.011,
+      "cx": -0.02,
+      "cy": 0.133,
+      "cz": 5.826,
+      "reset": false
+    },
+    {
+      "px": -0.133,
+      "pz": 5.073,
+      "cx": -0.164,
+      "cy": -0.561,
+      "cz": 6.245,
+      "reset": false
+    },
+    {
+      "px": -0.133,
+      "pz": 5.073,
+      "cx": -0.316,
+      "cy": -2.269,
+      "cz": 6.683,
+      "reset": false
+    },
+    {
+      "px": -0.91,
+      "pz": 7.452,
+      "cx": -0.368,
+      "cy": -3.401,
+      "cz": 6.834,
+      "reset": true
+    }
+  ],
+  "result": "pass",
+  "bridgedRequests": [
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-BCda-LsZ.css",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-BCda-LsZ.css",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/index-CI9ImV8K.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/index-CI9ImV8K.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/rolldown-runtime-QTnfLwEv.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/rolldown-runtime-QTnfLwEv.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/gameplay-webgl-runtime-HJx64JbS.js",
+      "status": 200
+    },
+    {
+      "proxyUrl": "http://bridge.invalid/assets/GameScene-DImzerlj.js",
+      "sourceUrl": "http://127.0.0.1:4243/assets/GameScene-DImzerlj.js",
+      "status": 200
+    }
+  ],
+  "aligned": {
+    "px": 0.955,
+    "pz": 0.902,
+    "cx": 0.797,
+    "cy": 0.525,
+    "cz": 2.313,
+    "reset": false
+  },
+  "maxCrateZ": 6.834,
+  "minCrateY": -3.401,
+  "final": {
+    "px": -0.91,
+    "pz": 7.452,
+    "cx": 0.8,
+    "cy": 0.981,
+    "cz": 2.2,
+    "reset": true
+  },
+  "playerRecovered": true,
+  "webgl": {
+    "available": true,
+    "glError": 0
+  },
+  "screenshotPath": "docs/validation-reports/wb-008-screenshots/wb-008-crate-respawned.png"
+}

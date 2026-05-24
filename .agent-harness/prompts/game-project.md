@@ -1,0 +1,7 @@
+# Prompt: Game Project Adoption or Continuation
+
+```txt
+Read HARNESS.md, docs/game-project-adoption.md, docs/adoption-existing-project.md, DESIGN.md, docs/design-brief.md, docs/component-contract.md, docs/project-brief.md, docs/requirements.md, docs/product.md, docs/stories.md, docs/code-architecture.md, docs/validation.md, docs/risk-register.md, docs/evidence-ledger.md, docs/browser-testing.md, docs/visual-qa.md, .agent-harness/workflows/game-sandbox-to-local.md, docs/3d-web-game-architecture.md, docs/3d-asset-pipeline.md, docs/3d-physics-workers.md, docs/3d-multiplayer-security.md, docs/3d-browser-testing.md, .agent-harness/checklists/game-player-facing-readiness.md, and .agent-harness/checklists/3d-web-game-readiness.md when present.
+
+Produce a Game Project Analysis before implementation. Do not code before design intake, GDD-lite, and a story-level Implementation File Plan exist. Separate developer debug evidence from player-facing evidence. Browser automation and WebGL diagnostics are not human playtest. Do not ask me to player-test while TODO/NOTE/DEBUG text, dev panels, collision helpers, test buttons, seed panels, or other developer-only UI are visible in normal play. Before requesting human playtest, run the player-facing readiness gate, capture normal player screenshots, compare them to DESIGN.md/design brief, self-play one loop, and report whether human playtest is allowed. If human/device/public URL checks cannot run here, record them as downstream blockers for production-release-readiness.
+```

@@ -1,0 +1,36 @@
+{
+  "story": "WB-006 initial-load and WebGL boundary",
+  "browserMode": "headless Chromium + Xvfb fallback",
+  "localhostDirect": "blocked; see wb-006-direct-probe.json",
+  "bridgeUsed": true,
+  "bridgeType": "setContent shell plus subresource request bridge delivering exact Vite preview bytes, including dynamic chunks",
+  "appSource": "http://127.0.0.1:4186",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "networkFailures": [],
+  "result": "pass",
+  "requestsAtIdleMenu": [
+    "http://127.0.0.1:4186/assets/index-BxL61rRh.css",
+    "http://127.0.0.1:4186/assets/index-D8gHaOpE.js"
+  ],
+  "menuCanvasAbsent": true,
+  "menuScreenshotPath": "docs/validation-reports/wb-006-screenshots/wb-006-menu-lightweight.png",
+  "requestsAfterPlayIntent": [
+    "http://127.0.0.1:4186/assets/index-BxL61rRh.css",
+    "http://127.0.0.1:4186/assets/index-D8gHaOpE.js",
+    "http://127.0.0.1:4186/assets/GameScene-BupuDlRW.js"
+  ],
+  "intentPrefetchedAssets": [
+    "http://127.0.0.1:4186/assets/GameScene-BupuDlRW.js"
+  ],
+  "webgl": {
+    "available": true,
+    "glError": 0,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "softwareRendererFrameSample": {
+    "count": 14,
+    "durationMs": 1196.7,
+    "fpsApprox": 11.7
+  }
+}
