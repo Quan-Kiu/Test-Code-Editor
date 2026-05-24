@@ -1,2 +1,2 @@
-console.log("Hello from MCP replacement!");
-// Run ID: 20260524045524-f231e9
+console.log("Hello from MCP direct sync!");
+// Run ID: 20260524045645-742a58
